@@ -1,6 +1,6 @@
 # Application name is FeedForward
 
-## Develop a web application for avvictech to get customer:
+## Develop a web application for avvictech to get customer feedback:
 
 1. User Login
 2. User Registration

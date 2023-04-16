@@ -141,6 +141,7 @@ const Form = styled.div`
     border-bottom-right-radius: 5px;
     display: none;
   }
+  
 
   @media screen and (min-width: 860px) {
     .register .col-2 img {

@@ -10,7 +10,6 @@ function Navbar() {
     const { logout, currentUser} = useAuthContext();
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    // have modal for failed to log out
     async function handleLogout() {
         setError("");
         try {

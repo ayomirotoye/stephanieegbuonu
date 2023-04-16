@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Feedback from "./pages/Feedback";
 import RequireAuth  from './util/RequireAuth';
+import NotFound from './pages/NotFound';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<Login />} />
           <Route path="/feedback-form" element={<RequireAuth><Feedback /></RequireAuth>} />
+          <Route path="*" element={<NotFound/>} />
         </Routes>
       </div>
     </Router>

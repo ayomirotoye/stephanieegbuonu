@@ -12,16 +12,18 @@ function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
+  
 
   async function handleSubmit(e) {
     e.preventDefault();
+    
     try {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       navigate("/feedback-form");
     } catch  {
-      setError("Failed to sign in");
+      setError("Wron email or password");
     }
     setLoading(false);
   }

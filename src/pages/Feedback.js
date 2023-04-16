@@ -1,8 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 import RadioOption from "../util/RadioOption";
+import {db} from '../firebase'
+import {uid} from 'uid'
+import { set, ref} from "firebase/database";
+import { useState} from "react";
 
 function Feedback() {
+  const[message, setMessage]= useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const handleMsgChange = (e) => {
+    setMessage(e.target.value)
+  }
+  const handleNameChange = (e) => {
+    setName(e.target.value)
+  }
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+  }
+  const writetoDB = () => {
+    const uuid = uid()
+    set(ref(db, `/${uuid}`), {
+      name,
+      email,
+      message
+    })
+    setEmail('')	
+    setName('')
+    setMessage('')
+  }
+  
   return (
     <Container>
       <Form>
@@ -26,7 +54,7 @@ function Feedback() {
             <h3>Very Poor</h3>
           </div>
         </div>
-        <form action="" id="form" className="flex flex-col">
+        <form onSubmit={writetoDB} id="form" className="flex flex-col">
           <RadioOption msg={'How would you rate your overall experince with our services?'} name={'overall experience'}/>
           <div className="borderline"></div>
           <RadioOption msg={'How would you rate the speed of our service delivery?'} name={'service delivery time'}/>
@@ -45,16 +73,19 @@ function Feedback() {
           <textarea
             id="message"
             rows="5"
+            value={message}
+            onChange={handleMsgChange}
             placeholder="We'd love to hear your suggestions..."
           ></textarea>
           <label htmlFor="name" style={{textAlign:'start'}}>
             Name <span id="asterisk">*</span>
           </label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name" value={name}
+            onChange={handleNameChange} />
           <label htmlFor="email" style={{textAlign:'start'}}>
-            Email(optional) <span id="asterisk">*</span>
+            Email <span id="asterisk">*</span>
           </label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" value={email} onChange={handleEmailChange} />
           <button type="submit" className="btn">
             Submit Feedback
           </button>

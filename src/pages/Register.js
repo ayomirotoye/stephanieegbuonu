@@ -21,6 +21,10 @@ function Register() {
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
       return setError("Password confirmation does not match");
     }
+    if(passwordRef.current.value.length < 6){
+      return setError("Password must be at least 6 characters");
+    }
+    
     try {
       setError("");
       setLoading(true);

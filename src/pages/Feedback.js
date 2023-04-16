@@ -102,7 +102,7 @@ const Form = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 80vw;
+  max-width: 65vw;
   margin: 2em auto;
   border: 1px solid #e9ecef;
   border-radius: 15px;

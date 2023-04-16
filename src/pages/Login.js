@@ -20,7 +20,7 @@ function Login() {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       navigate("/feedback-form");
-    } catch {
+    } catch  {
       setError("Failed to sign in");
     }
     setLoading(false);

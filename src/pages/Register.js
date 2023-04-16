@@ -32,38 +32,42 @@ function Register() {
     setLoading(false);
   }
   return (
-    <div>
+    <Container>
       <Form>
         <div className="register">
           <div className="col-1">
             <h2>Register</h2>
             <span>Sign up to gain full access to FeedForward's services</span>
-            {error && <div>{error}</div>}
+            <div style={{height: '10px'}}>
+            {error ? <div style={{color:'red'}}>{error}</div> : ''}
+            </div>
 
             <form id="form" className="flex flex-col" onSubmit={handleSubmit}>
-              <label htmlFor="name">Name</label>
-              <input ref={nameRef} type="text" name="name" id="name" />
-              <label htmlFor="email">Email</label>
-              <input ref={emailRef} type="email" name="email" id="email" />
-              <label htmlFor="password">Password</label>
+              <label htmlFor="name" style={{textAlign:'start'}}>Name</label>
+              <input ref={nameRef} type="text" name="name" id="name" placeholder="name" />
+              <label htmlFor="email" style={{textAlign:'start'}}>Email</label>
+              <input ref={emailRef} type="email" name="email" id="email" placeholder="someone@something.com" />
+              <label htmlFor="password" style={{textAlign:'start'}}>Password</label>
               <input
                 ref={passwordRef}
                 type="password"
                 name="password"
                 id="password"
+                placeholder="password"
               />
-              <label htmlFor="password">Confirm Password</label>
+              <label htmlFor="password" style={{textAlign:'start'}}>Confirm Password</label>
               <input
                 ref={confirmPasswordRef}
                 type="password"
                 name="password"
                 id="password"
+                placeholder="Confirm password"
               />
               <button type="submit" disabled={loading} className="btn">
                 Sign Up
               </button>
               <div>
-                Already registered? <Link to="/">Login here</Link>
+                Already registered? <Link to="/" style={{color:'black'}}>Login here</Link>
               </div>
             </form>
           </div>
@@ -73,14 +77,20 @@ function Register() {
           </div>
         </div>
       </Form>
-    </div>
+    </Container>
   );
 }
 
 export default Register;
 
+const Container = styled.div`
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  `
+
 const Form = styled.div`
-  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,7 +119,7 @@ const Form = styled.div`
   #form > input,
   .btn {
     border: 1px solid #e9ecef;
-    padding: 0.9em 1em;
+    padding: .7em;
   }
 
   #form > input:focus {
@@ -134,7 +144,7 @@ const Form = styled.div`
 
   .register .col-1 {
     margin: auto;
-    padding: 3em 0;
+    padding: 1em 0;
   }
 
   .register .col-2 img {

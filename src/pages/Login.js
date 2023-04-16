@@ -25,6 +25,7 @@ function Login() {
     }
     setLoading(false);
   }
+  
   return (
     <div>
       <Form>
@@ -32,25 +33,24 @@ function Login() {
           <div className="col-1">
             <h2>Login</h2>
             <span>Login to access your account</span>
-
-            {error && <div>{error}</div>}
+            <div style={{height: '10px'}}>
+            {error ? <div style={{color:'red'}}>{error}</div> : ''}
+            </div>
 
             <form id="form" className="flex flex-col" onSubmit={handleSubmit}>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" style={{textAlign:'start'}}>Email</label>
               <input
                 ref={emailRef}
                 type="email"
                 name="email"
-                
-                placeholder="email"
+                placeholder="someone@something.com"
                 required
               />
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" style={{textAlign:'start'}}>Password</label>
               <input
                 ref={passwordRef}
                 type="password"
                 name="password"
-                
                 placeholder="password"
                 required
               />
@@ -58,7 +58,7 @@ function Login() {
                 Login
               </button>
               <div>
-                Do not have an account? <Link to="/register">Signup here</Link>
+                Do not have an account? <Link to="/register" style={{color:'black'}}>Sign up here</Link>
               </div>
             </form>
           </div>

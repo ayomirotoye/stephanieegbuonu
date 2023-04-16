@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 function Navbar() {
-    const { logout} = useAuthContext();
+    const { logout, currentUser} = useAuthContext();
     const [error, setError] = useState("");
     const navigate = useNavigate();
     // have modal for failed to log out
@@ -37,8 +37,8 @@ function Navbar() {
 
             <Button>
                 <button>CONTACT</button>
-                <button onClick={handleLogout}>LOG OUT</button>
-                {/* render conditionally */}
+                {currentUser && <button onClick={handleLogout}>LOG OUT</button> }
+                
             </Button>
         </Nav>
     </div>
@@ -92,9 +92,11 @@ const Header = styled.div`
 const Button = styled.div`
     display: flex;
     margin-left: auto;
+    gap: 1.5rem;
 
     button {
         display: flex;
+        gap: 2rem;
         margin-left: auto;
         background-color: rgb(50,101,116);
         color: white;

@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import logo from "../images/logo.png"
 import { useState } from 'react'
 import { useAuthContext } from "../context/Authcontext.js";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 
 function Navbar() {
     const { logout, currentUser} = useAuthContext();
-    const [error, setError] = useState("");
+    const [ setError] = useState("");
     const navigate = useNavigate();
     async function handleLogout() {
         setError("");

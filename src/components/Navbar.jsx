@@ -1,8 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from "../images/logo.png"
+import { useState } from 'react'
+import { useAuthContext } from "../context/Authcontext.js";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function Navbar() {
+    const { logout} = useAuthContext();
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
+    // have modal for failed to log out
+    async function handleLogout() {
+        setError("");
+        try {
+            await logout();
+            navigate("/");
+
+        } catch {
+            setError("Failed to log out");
+        }
+        
+    }
   return (
     <div>
         <Nav>
@@ -18,6 +37,8 @@ function Navbar() {
 
             <Button>
                 <button>CONTACT</button>
+                <button onClick={handleLogout}>LOG OUT</button>
+                {/* render conditionally */}
             </Button>
         </Nav>
     </div>

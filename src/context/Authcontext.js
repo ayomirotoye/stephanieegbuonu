@@ -21,6 +21,10 @@ export function AuthProvider({children}) {
         return auth.signInWithEmailAndPassword(email, password);
     }
     
+    function logout(){
+        return auth.signOut();
+    }
+    
     useEffect(() => {
         const removerUser = auth.onAuthStateChanged((user) =>{setCurrentUser(user)
         setLoading(false);});
@@ -29,7 +33,8 @@ export function AuthProvider({children}) {
     const values = {
         currentUser,
         signup,
-        login
+        login,
+        logout
     }
     return (
         <AuthContext.Provider value={values}>

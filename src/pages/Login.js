@@ -33,7 +33,7 @@ function Login() {
             <h2>Login</h2>
             <span>Login to access your account</span>
 
-            {error}
+            {error && <div>{error}</div>}
 
             <form id="form" className="flex flex-col" onSubmit={handleSubmit}>
               <label htmlFor="email">Email</label>

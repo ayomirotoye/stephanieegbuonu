@@ -38,7 +38,7 @@ function Register() {
           <div className="col-1">
             <h2>Register</h2>
             <span>Sign up to gain full access to FeedForward's services</span>
-            {error}
+            {error && <div>{error}</div>}
 
             <form id="form" className="flex flex-col" onSubmit={handleSubmit}>
               <label htmlFor="name">Name</label>

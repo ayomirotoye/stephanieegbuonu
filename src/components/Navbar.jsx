@@ -8,7 +8,7 @@ import {  useNavigate } from "react-router-dom";
 
 function Navbar() {
     const { logout, currentUser} = useAuthContext();
-    const [ setError] = useState("");
+    const [ error, setError] = useState("");
     const navigate = useNavigate();
     async function handleLogout() {
         setError("");
@@ -21,6 +21,7 @@ function Navbar() {
         }
         
     }
+    console.log(error);
   return (
     <div>
         <Nav>

@@ -80,7 +80,7 @@ const Header = styled.div`
         font-size: 18px;
         padding: 10px;
 
-        @media (max-width: 760px) {
+        @media (max-width: 1200px) {
             display: none;
         }
     }
@@ -103,7 +103,7 @@ const Button = styled.div`
         color: white;
         padding: 15px 50px 15px 50px;
 
-        @media screen and (max-width: 760px) {
+        @media screen and (max-width: 800px) {
             padding: 10px 20px 10px 20px;
             font-size: 10px;
             font-weight: bold;

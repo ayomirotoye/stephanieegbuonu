@@ -114,6 +114,7 @@ const Form = styled.div`
   h1{
     text-align: center;
     color: rgb(50, 101, 116);
+    padding: 1%;
   }
   h2{
     color: rgb(50, 101, 116);

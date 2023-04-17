@@ -23,7 +23,7 @@ function Login() {
       await login(emailRef.current.value, passwordRef.current.value);
       navigate("/feedback-form");
     } catch  {
-      setError("Wron email or password");
+      setError("Wrong email or password");
     }
     setLoading(false);
   }
